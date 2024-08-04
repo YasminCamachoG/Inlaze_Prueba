@@ -1,2 +1,3 @@
-# Inlaze_Prueba
-# Inlaze_Prueba
+# Prueba Técnica QA
+
+Plataforma de prueba: https://test-qa.inlaze.com/
