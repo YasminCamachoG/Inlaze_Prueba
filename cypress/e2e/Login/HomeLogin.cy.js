@@ -7,7 +7,7 @@ describe('Login test-qa.inlaze', () => {
     })
 
     it('C-8 Login Existoso', () => {
-        cy.fixture('./cypress/fixtures/userRegister').then((testdata) => {
+        cy.fixture('userRegister.json').then((testdata) => {
             // Encuentra el campo de correo electrónico y escribe el correo
             cy.get('#email').type(testdata.validUser.email);
             // Encuentra el campo de contraseña y escribe la contraseña
