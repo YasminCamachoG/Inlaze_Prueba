@@ -5,20 +5,19 @@ describe.only('Login test-qa.inlaze', () => {
     beforeEach(() => {
         // Visita la página de inicio de sesión antes de cada prueba
         cy.visit('https://test-qa.inlaze.com/')
-        cy.fixture('userLogin').as('testdata')
     })
 
-    it('C-8 Login Existoso', function (params) {
-         // Encuentra el campo de correo electrónico y escribe la dirección
-         cy.get('#email').type(this.testdata.email);
-         // Encuentra el campo de contraseña y escribe la contraseña
-         cy.get('#password').type(this.testdata.password);
-         // Encuentra el botón de visualización de la contraseña y da clic
-         cy.get(':nth-child(3) > .ng-untouched > .join > .btn').click();
-         // Encuentra el botón de inicio de sesión y da clic en él
-         cy.xpath('//button[@type="submit"]').click();
-         // Se verifica el inicio de sesión fue exitoso
-         cy.url().should('include', '/panel');
+    it('C-8 Login Existoso', () => {
+        // Encuentra el campo de correo electrónico y escribe la dirección
+        cy.get('#email').type("yasmin.camacho03@gmail.com");
+        // Encuentra el campo de contraseña y escribe la contraseña
+        cy.get('#password').type("Contraseña1");
+        // Encuentra el botón de visualización de la contraseña y da clic
+        cy.get('.join > .btn').click();
+        // Encuentra el botón de inicio de sesión y da clic en él
+        cy.xpath('//button[@type="submit"]').click();
+        // Se verifica el inicio de sesión fue exitoso
+        cy.url().should('include', '/panel');
     })
 
     it('C-9 Login fallido por correo no registrado', () => {
@@ -27,6 +26,7 @@ describe.only('Login test-qa.inlaze', () => {
         cy.get('#password').type("Contraseña1");
         cy.xpath('//button[@type="submit"]').click();
         cy.contains('User not found').should('be.visible');
+
     })
 
     it('C-10 Login fallido por error en el la contraseña', () => {
