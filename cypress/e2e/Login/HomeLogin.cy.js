@@ -1,6 +1,6 @@
 //Casos de prueba para Login 
 
-describe('Login test-qa.inlaze', () => {
+describe.only('Login test-qa.inlaze', () => {
 
     beforeEach(() => {
         // Visita la página de inicio de sesión antes de cada prueba
