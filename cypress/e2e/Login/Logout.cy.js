@@ -1,21 +1,21 @@
 //Casos de prueba para usuario Logueado
 
 describe('Sesion en test-qa.inlaze', () => {
-
     beforeEach(() => {
         // Visita la página de inicio de sesión antes de cada prueba
-        cy.visit('https://test-qa.inlaze.com/')
-        // Login exitoso
-        cy.get('#email').type("yasmin.camacho03@gmail.com")
-        cy.get('#password').type("Contraseña1")
-        cy.xpath('//button[@type="submit"]').click();
+        cy.visit('https://test-qa.inlaze.com/');
+        cy.fixture('userLogin').as('testdata');
+        cy.get('#email').type("yasmin.camacho03@gmail.com");
+        cy.get('#password').type("Contraseña1");
+        // Encuentra el botón de inicio de sesión y da clic en él
+        cy.get('[type="submit"]').click();
+        // Se verifica el inicio de sesión fue exitoso
         cy.url().should('include', '/panel');
     })
 
-    it('C-13 Nombre de usuario', () => {
+    it('C-13 Nombre de usuario', function (params) {
         // Validar el nombre que se visualiza en la página una vez iniciada la sesion
-        cy.get(".flex > .font-bold").should('have.text', 'Juan Pablo')
-    
+        cy.get('.flex > .font-bold').should('have.text',this.testdata.name )
     })
 
     it('C-14 Log out exitoso', () => {
