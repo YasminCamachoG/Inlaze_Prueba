@@ -1,10 +1,19 @@
 {
   "validUser": {
+    "fullName" :"Maria Lopez", 
     "email": "yasmin.camacho03@gmail.com",
-    "password" : "Contraseña1"
+    "password" : "Password1*"
   },
   "invalidUser": {
-    "email": "usuario_incorrecto@example.com",
-    "password": "ContraseñaIncorrecta123"
+    "fullName" :"Maria", 
+    "email": "usuario_incorrecto@",
+    "password1": "pass",
+    "password2": "password",
+    "password3": "passaword2",
+    "password4": "passaword."
+  },  
+  "UserRegister": {
+    "email": "yasmin.camacho03@gmail.com",
+    "password" : "Contraseña1"
   }
 }
