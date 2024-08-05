@@ -12,10 +12,10 @@ describe('Sesion en test-qa.inlaze', () => {
         })
     })
 
-    it('C-13 Nombre de usuario', function (params) {
+    it('C-13 Nombre de usuario', () => {
         // Validar el nombre que se visualiza en la página una vez iniciada la sesion
         cy.fixture('userRegister').then((testdata) => {
-            cy.get('.flex > .font-bold').should('have.text', this.testdata.name)
+            cy.get('.flex > .font-bold').should('have.text', testdata.name)
         })
     })
 
