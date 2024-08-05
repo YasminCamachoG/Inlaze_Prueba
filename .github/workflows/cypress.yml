@@ -29,4 +29,8 @@ jobs:
         env:
             CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: cypress run
+        uses: cypress-io/github-action@v6
       - run: npm run cypress-clound
+      - run: npx cypress run --record --key d296bfa9-7f95-4768-a523-1f04188b8243
