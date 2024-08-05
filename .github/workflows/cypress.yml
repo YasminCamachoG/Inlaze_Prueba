@@ -19,12 +19,13 @@ jobs:
         with:
           # Starts web server for E2E tests - replace with your own server invocation
           # https://docs.cypress.io/guides/continuous-integration/introduction#Boot-your-server
-          start: npx cypress run --record --key d296bfa9-7f95-4768-a523-1f04188b8243
-          wait-on: 'http://localhost:3000' # Waits for above
-          # Records to Cypress Cloud
-          # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
-          record: true
-          parallel: true # Runs test in parallel using settings above
+          - run: npm install -D cypress-xpath
+          -  run: npm ci
+          - run: npm run build --if-present
+          - run: npm test
+          - start: npx cypress run --record --key d296bfa9-7f95-4768-a523-1f04188b8243
+          - record: true
+          - parallel: true # Runs test in parallel using settings above
         env:
           # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
           # in GitHub repo → Settings → Secrets → Actions
